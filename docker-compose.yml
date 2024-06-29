@@ -1,6 +1,6 @@
 services:
   www:
-    image: php:apache
+    image: my-php-apache
     volumes:
       - "./:/var/www/html" # sync project dir with container web dir
     ports:
