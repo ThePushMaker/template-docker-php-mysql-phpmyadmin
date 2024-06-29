@@ -15,6 +15,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to true
     volumes:
       - "./db:/docker-entrypoint-initdb.d" # sync persistent sql files with container
+      - "mysql-data:/var/lib/mysql"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -22,3 +23,5 @@ services:
     environment:
       - PMA_HOST=db
       - PMA_PORT=3306
+volumes:
+  mysql-data:
