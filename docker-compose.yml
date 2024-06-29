@@ -1,6 +1,6 @@
 services:
-  www: # allows to open php pages
-    image: my-php-apache
+  www: 
+    image: my-php-apache # allows to open php pages
     volumes:
       - "./:/var/www/html" # sync project dir with container web dir
     ports:
@@ -9,9 +9,9 @@ services:
   db:
     image: mysql:latest
     environment:
-      - MYSQL_DATABASE=php_docker
-      - MYSQL_USER=php_docker
-      - MYSQL_PASSWORD=password # this should live in a env var
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD} # this should live in a env var
       - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to true
     volumes:
       - "./db:/docker-entrypoint-initdb.d" # sync persistent sql files with container
