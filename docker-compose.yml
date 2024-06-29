@@ -11,7 +11,7 @@ services:
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD} # this should live in a env var
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ALLOW_EMPTY_PASSWORD=1 # equivalent to true
     volumes:
       - "./db:/docker-entrypoint-initdb.d" # sync persistent sql files with container
